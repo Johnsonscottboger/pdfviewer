@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aning.pdfviewer.dao.IReadingListDao">
+    <resultMap id="readingListMap" type="com.aning.pdfviewer.entity.ReadingList">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="document_id" property="documentId" jdbcType="VARCHAR"/>
+        <result column="lasted_read_datetime" property="lastedReadDateTime" jdbcType="DATETIME"/>
+        <result column="lasted_read_position" property="lastedReadPosition" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <insert id="add">
+        insert into ReadingList (user_id, document_id, lasted_read_datetime, lasted_read_position)
+        values (#{userId}, #{documentId}, #{lastedReadDateTime}, #{lastedReadPosition})
+    </insert>
+
+    <delete id="delete">
+        delete from ReadingList
+        values id = #{id}
+    </delete>
+
+    <select id="getAll" resultMap="readingListMap">
+        select * from ReadingList
+    </select>
+
+    <select id="getById" resultMap="readingListMap">
+        select * from ReadingList
+        where id = #{id}
+    </select>
+
+    <select id="getAllByUserId" resultMap="readingListMap">
+        select * from ReadingList
+        where user_id = #{userId}
+    </select>
+
+    <select id="getAllByDocumentId" resultMap="readingListMap">
+        select * from ReadingList
+        where document_id = #{documentId}
+    </select>
+
+    <update id="update">
+        update ReadingList
+        set user_id = #{userId},
+            document_id = #{documentId},
+            lasted_read_datetime = #{lastedReadDateTime},
+            lasted_read_position = #{lastedReadPosition}
+        where id = #{id}
+    </update>
+</mapper>
