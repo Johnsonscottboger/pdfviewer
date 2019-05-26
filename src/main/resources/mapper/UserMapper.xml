@@ -8,12 +8,12 @@
         <result column="password" property="password" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <insert id="add" parameterType="com.aning.pdfviewer.entity.User">
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         insert into User (name, email, password)
         values (#{name}, #{email}, #{password})
     </insert>
 
-    <delete id="delete" parameterType="com.aning.pdfviewer.entity.User">
+    <delete id="delete">
         delete from User
         where id = #{id} or email = #{email}
     </delete>

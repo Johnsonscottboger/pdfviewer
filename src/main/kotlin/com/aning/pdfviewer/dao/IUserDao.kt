@@ -36,6 +36,7 @@ public interface IUserDao {
      * 根据 [email] 和 [password] 获取 [User] 记录
      * @param email 指定的邮箱
      * @param password 指定的密码
+     * @return [User] 记录
      */
     public fun getByEmailAndPassword(email: String, password: String): User?
 

@@ -10,6 +10,6 @@ public class HomeController {
 
     @GetMapping("/")
     public fun index() : String{
-        return "index";
+        return "index"
     }
 }

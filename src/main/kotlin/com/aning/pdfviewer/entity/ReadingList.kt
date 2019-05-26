@@ -6,7 +6,7 @@ import java.time.LocalDateTime
  * 阅读列表
  */
 public data class ReadingList(
-        var id: Long,
+        var id: Long = 0,
         var userId: Long,
         var documentId: Long,
         var lastedReadDateTime: LocalDateTime,

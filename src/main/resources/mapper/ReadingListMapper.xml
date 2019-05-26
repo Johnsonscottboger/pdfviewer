@@ -9,7 +9,7 @@
         <result column="lasted_read_position" property="lastedReadPosition" jdbcType="INTEGER"/>
     </resultMap>
 
-    <insert id="add">
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         insert into ReadingList (user_id, document_id, lasted_read_datetime, lasted_read_position)
         values (#{userId}, #{documentId}, #{lastedReadDateTime}, #{lastedReadPosition})
     </insert>

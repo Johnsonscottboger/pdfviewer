@@ -39,11 +39,4 @@ public interface IDocumentDao {
      * @return [Document] 记录
      */
     public fun getByMD5(md5: String): Document?;
-
-    /**
-     * 根据 [userId] 获取所有 [Document] 记录
-     * @param userId 指定的 userId
-     * @return [Document] 记录
-     */
-    public fun getAllByUserId(userId: Long): List<Document>;
 }

@@ -16,6 +16,13 @@ public interface IDocumentService {
     public fun add(userId: Long, document: Document);
 
     /**
+     * 删除 [Document] 记录
+     * @param userId 删除记录的 [User.id]
+     * @param document 删除的 [Document] 实例
+     */
+    public fun delete(userId: Long, document: Document);
+
+    /**
      * 获取所有 [Document] 记录
      * @return 所有 [Document] 记录
      */

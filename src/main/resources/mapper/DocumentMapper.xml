@@ -23,18 +23,12 @@
         where t.md5 = #{md5}
     </select>
 
-    <select id="getAllByUserId" resultMap="documentMap">
-       SELECT d.* FROM Document d
-        LEFT JOIN PDFViewer.User_Document r ON d.id = r.document_id
-        WHERE r.user_id = 1
-    </select>
-
-    <insert id="add" parameterType="com.aning.pdfviewer.entity.Document">
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         insert into Document (md5, name, size, type)
-        values (#{md5}, #{name}, #{size}, #{type})
+        values (#{md5}, #{name}, #{size}, #{type});
     </insert>
 
-    <delete id="delete" parameterType="com.aning.pdfviewer.entity.Document">
+    <delete id="delete">
         delete from Document
         where id = #{id}
     </delete>
